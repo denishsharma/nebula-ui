@@ -1,0 +1,35 @@
+{
+    "name": "@xash/nebula-ui-layer",
+    "type": "module",
+    "version": "0.0.1",
+    "packageManager": "pnpm@9.12.2",
+    "main": "./nuxt.config.ts",
+    "scripts": {
+        "dev": "nuxi dev .playground",
+        "dev:prepare": "cd .module && nuxt-module-build build --stub && nuxt-module-build prepare && cd .. && nuxi prepare .playground",
+        "dev:build": "nuxt build .playground",
+        "generate": "nuxt generate .playground",
+        "preview": "nuxt preview .playground",
+        "lint": "eslint . --fix",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
+        "test:types": "vue-tsc --noEmit && nuxi typecheck .playground",
+        "prepack": "nuxt-module-build build"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^3.11.2",
+        "@nuxt/eslint-config": "^0.7.2",
+        "@tailwindcss/postcss": "4.0.0-beta.4",
+        "@tailwindcss/vite": "4.0.0-beta.4",
+        "eslint": "^9.16.0",
+        "eslint-plugin-command": "^0.2.6",
+        "eslint-plugin-format": "^0.1.3",
+        "nuxt": "^3.14.1592",
+        "tailwindcss": "4.0.0-beta.4",
+        "typescript": "5.6.3",
+        "vue": "latest"
+    },
+    "resolutions": {
+        "@xash/nebula-ui": "latest"
+    }
+}
