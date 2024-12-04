@@ -1,0 +1,5 @@
+/* Source: global.css */
+
+@import "tailwindcss";
+
+@import "../.nuxt/nebula-ui/assets/styles/nebula.css";

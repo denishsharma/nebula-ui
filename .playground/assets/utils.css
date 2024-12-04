@@ -1,0 +1,7 @@
+/* Source: utils.css */
+
+@import "tailwindcss/theme" theme(reference);
+
+.some-utils {
+    @apply bg-red-500;
+}

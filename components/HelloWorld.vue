@@ -4,7 +4,7 @@ const { myLayer } = useAppConfig();
 
 <template>
     <div>
-        <h1 class="bg-red-100">
+        <h1 class="some-utils">
             Hello World!
         </h1>
         <pre>{{ myLayer }}</pre>
