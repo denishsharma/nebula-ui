@@ -1,5 +1,6 @@
-import { addVitePlugin, createResolver, defineNuxtModule, hasNuxtModule, installModule } from "@nuxt/kit";
+import { addTemplate, addVitePlugin, createResolver, defineNuxtModule, hasNuxtModule, installModule } from "@nuxt/kit";
 import defu from "defu";
+import fg from "fast-glob";
 
 export interface ModuleOptions {}
 
@@ -20,6 +21,16 @@ export default defineNuxtModule<ModuleOptions>({
         } else {
             nuxt.options.postcss.plugins["@tailwindcss/postcss"] = {};
         }
+
+        const assetsDir = resolve("./runtime/assets");
+        const filesInAssetsDir = await fg("**/*", { cwd: assetsDir });
+        await Promise.all(filesInAssetsDir.map((file) => {
+            return addTemplate({
+                src: resolve(assetsDir, file),
+                filename: `nebula-ui/assets/${file}`,
+                write: true,
+            });
+        }));
 
         async function registerModule(name: string, options: Record<string, any>) {
             if (!hasNuxtModule(name)) {
